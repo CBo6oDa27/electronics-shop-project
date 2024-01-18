@@ -11,6 +11,11 @@ def test_item_init():
     assert test_item.name == 'Jameson'
     assert test_item.quantity == 3
 
+def test__repr__():
+    assert repr(test_item) == "Item('Jameson', 2700.0, 3)"
+
+def test__str__():
+    assert str(test_item) == "Jameson"
 
 def test_item_calculate_total_price():
     assert test_item.calculate_total_price() == 8100.0
@@ -35,3 +40,4 @@ def test_instantiate_from_csv():
 def test_name():
     test_item.name = '1234567890123'
     assert test_item.name == '1234567890'
+
