@@ -66,6 +66,11 @@ class Item:
                 items.append(item)
         return items
 
+    def __add__(self, other):
+        if not isinstance(other, Item):
+            raise ValueError('Складывать можно только объекты Item и дочерние от них.')
+        return self.quantity + other.quantity
+
     @staticmethod
     def string_to_number(number_as_string):
         return int(float(number_as_string))
