@@ -1,7 +1,9 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
 from src.item import Item
 from src.phone import Phone
+from src.keyboard import Keyboard
 
+kb = Keyboard('Dark Project KD87A', 9600, 5)
 
 test_item = Item('Jameson', 2700.0, 3)
 test_item.pay_rate = 0.5
@@ -47,4 +49,11 @@ def test_instantiate_from_csv():
 def test_name():
     test_item.name = '1234567890123'
     assert test_item.name == '1234567890'
+
+def test_language():
+    assert str(kb.language) == "EN"
+
+def test_change_lang():
+    kb.change_lang()
+    assert kb.language == 'RU'
 
