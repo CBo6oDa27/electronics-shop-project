@@ -2,6 +2,8 @@
 from src.item import Item
 from src.phone import Phone
 from src.keyboard import Keyboard
+from src.item import InstantiateCSVError
+import pytest
 
 kb = Keyboard('Dark Project KD87A', 9600, 5)
 
@@ -56,4 +58,13 @@ def test_language():
 def test_change_lang():
     kb.change_lang()
     assert kb.language == 'RU'
+
+
+#def test_instantiate_from_csv():
+#    with pytest.raises(FileNotFoundError):
+#        Item.instantiate_from_csv('nofile.csv')
+
+def test_instantiate_from_csv():
+    with pytest.raises(InstantiateCSVError):
+        Item.instantiate_from_csv('../src/items_broken.csv')
 
